@@ -12,7 +12,9 @@ export class AuthorService {
   ) {}
 
   findAll() {
-    return this.authorRepo.find();
+    return this.authorRepo.find({
+      relations: { books: true}
+    });
   }
 
   async getAllFilter(first_name) {

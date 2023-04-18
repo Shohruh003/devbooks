@@ -7,8 +7,13 @@ import { JwtGuards } from '../auth/guards/jwt.guards';
 @Controller('category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
+  @Get("")
+  findall() {
+    return this.categoryService.findAll();
+  }
+
   @Get("/author")
-  findAll() {
+  find() {
     return this.categoryService.findAll();
   }
 
