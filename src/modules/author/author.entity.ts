@@ -59,4 +59,7 @@ export class Author extends BaseEntity {
 
   @OneToMany(() => Book, (book) => book.author_id)
   books: Book[]
+
+  @ManyToOne(() => Book, (book) => book.author)
+  book_id: Book[]
 }

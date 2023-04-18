@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from '../category/category.entity';
 import { Author } from '../author/author.entity';
 
@@ -49,4 +49,7 @@ export class Book extends BaseEntity {
 
   @ManyToOne(() => Author, (author) => author.books)
   author_id: Author[]
+
+  @OneToMany(() => Author, (author) => author.book_id)
+  author: Author[]
 }
